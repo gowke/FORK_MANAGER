@@ -46,6 +46,9 @@ class File_Manager(tk.Frame):
             'agem':"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"
             }
 
+        self.bin_files=['_farmer','_full_node','_full_node_simulator','_harvester','_introducer',
+                        '_timelord','_timelord_launcher','_wallet']
+
         self.folder_names={ 'chia':'chia-blockchain',
                             'chaingreen':'chaingreen-blockchain',
                             'cannabis':'cannabis-blockchain',
@@ -74,35 +77,96 @@ class File_Manager(tk.Frame):
                     output = repo.git.submodule('update', '--init')
                     subprocess.check_call(['sh','./make_devel.sh'])
                 elif filename=='agem':
-                    file_names = os.listdir(install_folder)
-                    file_names.remove('LICENSE')
-                    file_names.remove('.git')
-                    for file_name in file_names:
-                        source=os.path.join(install_folder,file_name)
-                        target=os.path.join(folder,file_name)
-                        subprocess.check_call(['mv', source, target])
-                    os.chdir(folder)
+                    venv_bin=os.path.join(folder,'venv/bin/launcher')
+                    with open(venv_bin, 'w+') as launcher_file:
+                        launcher_file.write('#!/bin/bash \n python3 {}/launcher.py'.format(install_folder))
+                    subprocess.check_call(['chmod', 'u+x',venv_bin])
                     subprocess.check_call(['chmod', 'u+x','install_manager.sh'])
                     subprocess.check_call(['sh','./install_manager.sh'])
                 elif (filename != 'madmax') and (filename !='agem'):
                     subprocess.check_call(['sh','./install.sh'])
                 print('\n \n INSTALLATION COMPLETED')
 
+    def merge(self,folder,temp_dir,install_folder,filename):
+        temp_bin=os.path.join(install_folder,'venv/bin')
+        main_bin=os.path.join(folder,'venv/bin')
+        dest_bin=[]
+        bin_dict={}
+        for file in self.bin_files:
+            temp_bin_file=os.path.join(temp_bin,(filename+file))
+            main_bin_file=os.path.join(main_bin,(filename+file))
+            bin_dict[temp_bin_file]=main_bin_file
+            dest_bin.append(main_bin_file)
+
+        for file in dest_bin:
+            try:
+                os.remove(file)
+            except:
+                pass
+
+        for file in bin_dict:
+            subprocess.check_call(['cp',file,bin_dict[file]])
+            print('copying to {} completed'.format(bin_dict[file]))
+
+        launch_file_temp=os.path.join(temp_bin,filename)
+        launch_file_main=os.path.join(main_bin,filename)
+        try:
+            os.remove(launch_file_main)
+        except:
+            pass
+        subprocess.check_call(['cp',launch_file_temp,launch_file_main])
+        print('copying to {} completed'.format(launch_file_main))
+
     def wname(self,event):
             filename=self.label_id_text[id(event.widget)]
             home = str(Path.home())
             folder=filedialog.askdirectory(parent=self.frame1,initialdir=home,
                                   title='Please select a directory')
-            install_folder=os.path.join(folder,self.folder_names[filename])
-            try:
-                self.get_dir(folder,install_folder,filename) 
-            except Exception as e:
-                print('directory {} exists'.format(install_folder))
-                print(e)
-                f=input('delete and re-install y/n?\n')
-                if f == 'y':
-                    shutil.rmtree(install_folder)
+
+            
+            if 'venv' and 'install.sh' in os.listdir(folder):
+                if (filename != 'agem') and (filename != 'madmax'):
+                    print('existing install detected')
+                    temp_folder= os.path.join(folder,'FORKS')
+                    if os.path.isdir(temp_folder) is False:
+                        os.mkdir(temp_folder)
+                    install_folder=os.path.join(temp_folder,self.folder_names[filename])
+                    if os.path.isdir(install_folder):
+                        shutil.rmtree(install_folder)
+                    try:
+                        self.get_dir(temp_folder,install_folder,filename)
+                    except Exception as e:
+                        print('directory {} exists'.format(install_folder))
+                        print(e)
+                        f=input('delete and re-install y/n?\n')
+                        if f == 'y':
+                            shutil.rmtree(install_folder)
+                            self.get_dir(temp_folder,install_folder,filename)
+                        
+                    self.merge(folder,temp_folder,install_folder,filename)
+                else:
+                    install_folder=os.path.join(folder,self.folder_names[filename])
+                    try:
+                        self.get_dir(folder,install_folder,filename) 
+                    except Exception as e:
+                        print('directory {} exists'.format(install_folder))
+                        print(e)
+                        f=input('delete and re-install y/n?\n')
+                        if f == 'y':
+                            shutil.rmtree(install_folder)
+                            self.get_dir(folder,install_folder,filename) 
+                
+            else:
+                install_folder=os.path.join(folder,self.folder_names[filename])
+                try:
                     self.get_dir(folder,install_folder,filename) 
+                except Exception as e:
+                    print('directory {} exists'.format(install_folder))
+                    print(e)
+                    f=input('delete and re-install y/n?\n')
+                    if f == 'y':
+                        shutil.rmtree(install_folder)
+                        self.get_dir(folder,install_folder,filename) 
 
 
     def build_menu(self):
