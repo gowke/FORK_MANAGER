@@ -32,8 +32,8 @@ class File_Manager(tk.Frame):
             'cannabis':'https://github.com/CannabisChain/cannabis-blockchain.git',
             'goji': 'https://github.com/GetGoji/goji-blockchain.git', 
             'flax': 'https://github.com/Flax-Network/flax-blockchain.git',
-            'madmax':'https://github.com/madMAx43v3r/chia-plotter.git'
-            'agem':'none'
+            'madmax':'https://github.com/madMAx43v3r/chia-plotter.git',
+            'agem':'https://github.com/gowke/FORK_MANAGER.git'
             }
 
 
@@ -51,7 +51,8 @@ class File_Manager(tk.Frame):
                             'cannabis':'cannabis-blockchain',
                             'flax':'flax-blockchain',
                             'goji':'goji-blockchain',
-                            'madmax':'chia-plotter'}
+                            'madmax':'chia-plotter',
+                            'agem':'FORK_MANAGER'}
 
         self.chia=PhotoImage(data=self.logos['chia'])
         self.chaingreen=PhotoImage(data=self.logos['chaingreen'])
@@ -59,28 +60,33 @@ class File_Manager(tk.Frame):
         self.goji=PhotoImage(data=self.logos['goji'])
         self.flax=PhotoImage(data=self.logos['flax'])
         self.madmax=PhotoImage(data=self.logos['madmax'])
-        self.main_logo=PhotoImage(data=self.logos['agem'])
+        self.agem=PhotoImage(data=self.logos['agem'])
         b64_blank='iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAG8AAABvAFoqEWdAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAG9QTFRF////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA62mwiwAAACR0Uk5TAAgVFxklJjE/RF17fYCVmZyxt7jLzM3O0uDn6O72+Pn6+/3+hMT3dgAAAMFJREFUWMPt18sSgjAMheEoqCCggHeC5dK8/zO6cAQcp2lga/59v8mmiwPwKS6R+G5rYMostQ+2nu6MENk6CYANiRMKSsETNidGwC70AmbFCITgB4ARZAAjCAG3IAWcggCoDDCCALjSjhEEwJFycAsCYPtsc/cNAgD2TyJjjDGmIbosAGBzOFf4rqclwNfPUkABBRRQQAEFFFBAgf8ABLNvWtjh/OE5LaVi/vQdC5LaRvPH91hLNvtl/fN/CMt4ePYCLos26nrfQ4AAAAAASUVORK5CYII='
         self.blank=PhotoImage(data=b64_blank)
 
         self.build_menu()
 
-    def install_manager(self):
-        
-
     def get_dir(self,folder,install_folder,filename):
                 git.Git(folder).clone(self.repos[filename])
                 os.chdir(install_folder)
-                if filename != 'madmax':
-                    subprocess.check_call(['sh','./install.sh'])
-                elif filename == 'madmax':
+                if filename == 'madmax':
                     repo=git.Repo(os.getcwd())
                     output = repo.git.submodule('update', '--init')
-                    print(output)
                     subprocess.check_call(['sh','./make_devel.sh'])
-                elif filename =='agem':
-                    self.install_manager
-                print('\n \n INSTALLATION FCOMPLETED')
+                elif filename=='agem':
+                    file_names = os.listdir(install_folder)
+                    file_names.remove('LICENSE')
+                    file_names.remove('.git')
+                    for file_name in file_names:
+                        source=os.path.join(install_folder,file_name)
+                        target=os.path.join(folder,file_name)
+                        subprocess.check_call(['mv', source, target])
+                    os.chdir(folder)
+                    subprocess.check_call(['chmod', 'u+x','install_manager.sh'])
+                    subprocess.check_call(['sh','./install_manager.sh'])
+                elif (filename != 'madmax') and (filename !='agem'):
+                    subprocess.check_call(['sh','./install.sh'])
+                print('\n \n INSTALLATION COMPLETED')
 
     def wname(self,event):
             filename=self.label_id_text[id(event.widget)]
@@ -92,6 +98,7 @@ class File_Manager(tk.Frame):
                 self.get_dir(folder,install_folder,filename) 
             except Exception as e:
                 print('directory {} exists'.format(install_folder))
+                print(e)
                 f=input('delete and re-install y/n?\n')
                 if f == 'y':
                     shutil.rmtree(install_folder)
@@ -112,6 +119,7 @@ class File_Manager(tk.Frame):
             all_repos=[]
             for repo in self.repos:
                 all_repos.append(File(repo,self.repos[repo]))
+
             
             self.label={}
             self.label_id_text={}
