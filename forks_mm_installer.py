@@ -57,7 +57,8 @@ class File_Manager(tk.Frame):
             'fork':'https://github.com/Fork-Network/fork-blockchain.git',
             'shamrock':'https://github.com/Shamrock-Network/shamrock-blockchain.git',
             'chives':'https://github.com/HiveProject2021/chives-blockchain.git',
-            'chiadoge':'https://github.com/ChiaDoge-Network/chiadogecoin.git'            
+            'chiadoge':'https://github.com/ChiaDoge-Network/chiadogecoin.git',
+            'all':'none'
             }
 
 
@@ -223,10 +224,44 @@ class File_Manager(tk.Frame):
         subprocess.check_call(['cp',launch_file_temp,launch_file_main])
         print('copying to {} completed'.format(launch_file_main))
 
-    def wname(self,event):
-            filename=self.label_id_text[id(event.widget)]
-            home = str(Path.home())
-            folder=filedialog.askdirectory(parent=self.frame1,initialdir=home,
+    def install_all(self,event):
+        self.popup_two=Toplevel()
+        self.exclude= tk.StringVar()
+        self.popup_two.title('EXCLUDE')
+        exclude_advice=Label(self.popup_two,text='list repos to exclude, using commas eg madmax,agem,chia',fg='white',font='Arial 16',compound=BOTTOM)
+        exclude_entry=Entry(self.popup_two,textvariable=self.exclude)
+        exclude_advice.pack()
+        exclude_entry.pack()
+        exclude_entry.bind('<Return>',lambda event: self.exclude_and_install(event))
+
+    def exclude_and_install(self,event):
+        exclude_list=self.exclude.get().split(',')
+        self.popup_two.destroy()
+        install_list=[]
+        for repo in self.repos:
+            if repo in exclude_list:
+                pass
+            else:
+                install_list.append(repo)
+        install_list.remove('all')
+        home = str(Path.home())
+        folder=filedialog.askdirectory(parent=self.frame1,initialdir=home,
+                                  title='Please select a directory for all installs')
+        for repo in install_list:
+            print('proceeding to install {}'.format(repo))
+            self.wname(event,repo,folder)
+
+        
+
+    def wname(self,event,all_check,folder):
+
+            if all_check == 'None':
+                filename=self.label_id_text[id(event.widget)]
+            else:
+                filename=all_check
+            if folder=='None':
+                home = str(Path.home())
+                folder=filedialog.askdirectory(parent=self.frame1,initialdir=home,
                                   title='Please select a directory')
 
             
@@ -365,13 +400,14 @@ class File_Manager(tk.Frame):
                     lbl_image=self.blank
                 self.label[widgetname]=Label(self.inner_frame,text=lbl.name, font=('Arial',16),compound=LEFT,image=lbl_image)
                 self.label[widgetname].grid(row=x,column=y,sticky= NW)
-                self.label[widgetname].bind('<Double-Button-1>',lambda event: self.wname(event))
+                self.label[widgetname].bind('<Double-Button-1>',lambda event:self.wname(event,'None','None'))
                 self.label_id_text[id(self.label[widgetname])]=widgetname
                 x=x+1
                 if x==8:
                     y=y+1
                     x=2
-
+            self.label['all'].unbind
+            self.label['all'].bind('<Double-Button-1>',lambda event:self.install_all(event))
 
             
 
