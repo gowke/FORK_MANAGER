@@ -99,9 +99,7 @@ class Console(tk.Frame):
             if key in files_in_bin:
                 print('%s detected'%key)
                 all_found_repos.append(File(key,self.image_vars[key]))
-
-        print (all_found_repos)
-            
+        
                 
         self.label={}
         self.label_id_text={}
@@ -113,7 +111,6 @@ class Console(tk.Frame):
         for lbl in all_found_repos:
                 self.label[lbl.name]=Label(self.master,text=lbl.name, font=('Arial',16),compound=LEFT,image=lbl.image)
                 self.label[lbl.name].grid(row=x,column=y,sticky= NW)
-                #self.label[lbl.name].bind('<Double-Button-1>',lambda event:self.wname(event,'None','None'))
                 self.label_id_text[id(self.label[lbl.name])]=lbl.name
                 x=x+1
                 if x==8:
