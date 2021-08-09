@@ -318,7 +318,7 @@ class Console(tk.Frame):
                 #if x==8:
                     #y=y+1
                     #x=2
-        self.master.geometry("1130x900")
+        
 
     def find(self):
         self.home = str(Path.home())
