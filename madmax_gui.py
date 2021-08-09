@@ -32,6 +32,8 @@ class Madmaxx(tk.Frame):
 
         self.wait_true=StringVar()
 
+        self.install.set(self.homedir)
+
        
         self.install_lbl=Label(self.master,text='Madmax Install')
         self.count_lbl=Label(self.master,text='plots -n')
@@ -170,7 +172,6 @@ class Madmaxx(tk.Frame):
     def start(self):
         commands=['./chia_plot']
         commands=self.build_command(commands)
-        print(commands)
         madmax_dir=self.install.get()
         os.chdir(madmax_dir)
         subprocess.check_call(commands)
