@@ -453,28 +453,30 @@ class Console(tk.Frame):
             subprocess.check_call(['{}'.format(self.repo_to_delete),'stop','all','-d'],shell=False)
         except:
              pass
-        
-        if self.delete_keys_str.get()=='TRUE':
-                try:
-                    subprocess.check_call(['{}'.format(self.repo_to_delete),'keys', 'delete_all'],shell=False)
-                except:
-                    pass
-        if self.delete_hidden_str.get() =='TRUE':
-            try:
-                subprocess.check_call(['rm','-r','{}'.format(self.folder_to_delete[self.repo_to_delete]['home_folder'])],shell=False)
-            except:
-                pass
+        try:
+            if self.delete_keys_str.get()=='TRUE':
+                subprocess.check_call(['{}'.format(self.repo_to_delete),'keys', 'delete_all'],shell=False)
+        except:
+            pass
 
-        if self.delete_install_folder_str.get() =='TRUE':
-            try:
+        try:
+            if self.delete_hidden_str.get() =='TRUE':
+                subprocess.check_call(['rm','-r','{}'.format(self.folder_to_delete[self.repo_to_delete]['home_folder'])],shell=False)
+        except:
+            pass
+
+        try:
+            if self.delete_install_folder_str.get() =='TRUE':
                 subprocess.check_call(['rm','-r','{}'.format(self.folder_to_delete[self.repo_to_delete]['FORKS_folder'])],shell=False)
-            except:
-                pass
             try:
                 for file in self.folder_to_delete[self.repo_to_delete]['bin_files']:
                     subprocess.check_call(['rm','{}'.format(file)],shell=False)
             except:
                 pass
+        except:
+            pass
+        self.popup_four.destroy()
+        self.refresh()
 
     
         

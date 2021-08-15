@@ -299,7 +299,9 @@ class File_Manager(tk.Frame):
                     f=input('delete and re-install y/n?\n')
                     if f == 'y':
                         shutil.rmtree(install_folder)
-                        self.get_dir(folder,install_folder,filename) 
+                        self.get_dir(folder,install_folder,filename)
+
+            os.chdir(folder)
 
 
     def build_menu(self):
