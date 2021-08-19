@@ -35,7 +35,7 @@ class File_Manager(tk.Frame):
             'flax': 'https://github.com/Flax-Network/flax-blockchain.git',
             'madmax':'https://github.com/madMAx43v3r/chia-plotter.git',
             'agem':'https://github.com/gowke/FORK_MANAGER.git',
-            'lotus':'git@github.com:gowke/FORK_MANAGER.git
+            'lotus':'https://github.com/gowke/lotus-blockchain.git',
             'spare':'https://github.com/Spare-Network/spare-blockchain.git',
             'silicoin':'https://github.com/silicoin-network/silicoin-blockchain.git',
             'flora':'https://github.com/Flora-Network/flora-blockchain.git',
