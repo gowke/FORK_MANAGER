@@ -4,7 +4,7 @@ pulls and installs available forks into host blockchain environment
 run pip3 install -r requirements.txt (if tkinter is mising: sudo apt-get install python3-tk) and then python3 launch.py to get started and install the agem manager from repo into the blockchain fork of your choice
 cd into the blockchain environemnt
 run . ./activate
-and run 'launcher' to run the manager
+and run 'launcher' to run the manager from within the environment
 add forks direct from respective repos to your environemnt and run as usual chia, chaingreen, flax, goji, cannabis from the same env
 MADMAX Gui is not dependent on the environment. 
 
