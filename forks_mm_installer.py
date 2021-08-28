@@ -153,6 +153,9 @@ class File_Manager(tk.Frame):
                             lines = console.readlines()
                             cur_folder=os.getcwd()
                             lines[43] = f"self.FORK_MANAGER_folder_ini = '{cur_folder}'"
+                            with open('consple.py','w') as console_out:
+                                console_out.writelines(lines)
+                            
                     venv_bin=os.path.join(folder,'venv/bin/launcher')
                     with open(venv_bin, 'w+') as launcher_file:
                         launcher_file.write('#!/bin/bash \n python3 {}/launcher.py'.format(install_folder))
