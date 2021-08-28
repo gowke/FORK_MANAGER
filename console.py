@@ -141,14 +141,14 @@ class Console(tk.Frame):
 
         self.detect_adv.grid(row=0,column=2)        
         
-        self.start = Button(self.inner_frame,text='DETECT',bg='turquoise',fg='white',font='Arial 16',command=self.start_detect)
-        self.start.grid(row=3,column=3)
+        self.detect = Button(self.inner_frame,text='DETECT',bg='turquoise',fg='white',font='Arial 16',command=self.start_detect)
+        self.detect.grid(row=3,column=3)
 
-        self.start_all = Button(self.inner_frame,text='START ALL',bg='turquoise',fg='white',font='Arial 16',command=self.start_all)
-        self.start_all.grid(row=4,column=3)
+        self.start_all_btn = Button(self.inner_frame,text='START ALL',bg='turquoise',fg='white',font='Arial 16',command=self.start_all)
+        self.start_all_btn.grid(row=4,column=3)
 
-        self.stop_all = Button(self.inner_frame,text='STOP ALL',bg='turquoise',fg='white',font='Arial 16',command=self.stop_all)
-        self.stop_all.grid(row=5,column=3)
+        self.stop_all_btn = Button(self.inner_frame,text='STOP ALL',bg='turquoise',fg='white',font='Arial 16',command=self.stop_all)
+        self.stop_all_btn.grid(row=5,column=3)
 
         self.refresh_btn = Button(self.inner_frame,text='REFRESH',bg='turquoise',fg='white',font='Arial 16',command=self.refresh)
         self.refresh_btn.grid(row=6,column=3)
@@ -428,19 +428,19 @@ class Console(tk.Frame):
 
                 x=x+1
 
-                self.detect_adv.grid(row=0,column=1)                       
+                self.detect_adv.grid_configure(row=0,column=1)                       
 
-                self.host_install_lbl.grid(row=1,column=0)
-                self.host_install_entr.grid(row=1,column=1)
+                self.host_install_lbl.grid_configure(row=1,column=0)
+                self.host_install_entr.grid_configure(row=1,column=1)
 
-                self.find.grid(row=1,column=2)
+                self.find.grid_configure(row=1,column=2)
 
-                self.scan_ports.grid(row=2,column=2)
+                self.scan_ports.grid_configure(row=2,column=2)
        
-                self.start.grid(row=3,column=2)
-                self.refresh_btn.grid(row=4,column=2)
-                self.start_all.grid(row=5,column=2)
-                self.stop_all.grid(row=6,column=2)
+                self.detect.grid_configure(row=3,column=2)
+                self.refresh_btn.grid_configure(row=4,column=2)
+                self.start_all_btn.grid_configure(row=5,column=2)
+                self.stop_all_btn.grid_configure(row=6,column=2)
                 
                 self.frame1.configure(width='970')
                 self.frame1.configure(height='800')
@@ -467,7 +467,7 @@ class Console(tk.Frame):
         self.delete_folder= Radiobutton(self.popup_four, text ='Delete install', bg='turquoise',font='Arial 16', variable = self.delete_install_folder_str,
                 value='TRUE', indicator = 0).pack()
 
-        self.start_all = Button(self.popup_four,text='DELETE',bg='turquoise',fg='white',font='Arial 16',command=self.delete_func_two).pack()
+        self.delete_btn = Button(self.popup_four,text='DELETE',bg='turquoise',fg='white',font='Arial 16',command=self.delete_func_two).pack()
 
 
     def delete_func_two(self):
