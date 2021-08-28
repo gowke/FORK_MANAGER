@@ -153,7 +153,6 @@ class File_Manager(tk.Frame):
                             lines = console.readlines()
                             cur_folder=os.getcwd()
                             lines[43] = f"        self.FORK_MANAGER_folder_ini = '{cur_folder}\n'"
-                            lines[44] = "#testing"
                             with open('console.py','w') as console_out:
                                 console_out.writelines(lines)
                             
