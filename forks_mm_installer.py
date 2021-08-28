@@ -154,7 +154,7 @@ class File_Manager(tk.Frame):
                             cur_folder=os.getcwd()
                             lines[43] = f"self.FORK_MANAGER_folder_ini = '{cur_folder}'"
                             lines[44] = "#testing"
-                            with open('consple.py','w') as console_out:
+                            with open('console.py','w') as console_out:
                                 console_out.writelines(lines)
                             
                     venv_bin=os.path.join(folder,'venv/bin/launcher')
