@@ -40,7 +40,7 @@ class Console(tk.Frame):
         self.homedir=os.getcwd()
         self.venv_path=os.path.join('venv','bin')
         self.forks_folder_path=os.path.join(self.homedir,'FORKS')
-        self.FORK_MANAGER_folder_ini = ''
+
 
         if os.path.isdir(self.venv_path):
             last_known_host_venv=os.path.join(self.homedir,self.venv_path)
