@@ -150,7 +150,7 @@ class File_Manager(tk.Frame):
                     subprocess.check_call(['sh','./make_devel.sh'])
                 elif filename=='agem':
                     with open('console.py','a') as console:
-                            lines = colsile.readlines()
+                            lines = console.readlines()
                             cur_folder=os.getcwd()
                             lines[43] = f"self.FORK_MANAGER_folder_ini = '{cur_folder}'"
                     venv_bin=os.path.join(folder,'venv/bin/launcher')
