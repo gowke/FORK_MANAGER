@@ -149,7 +149,7 @@ class File_Manager(tk.Frame):
                     output = repo.git.submodule('update', '--init')
                     subprocess.check_call(['sh','./make_devel.sh'])
                 elif filename=='agem':
-                    with open('console.py','a') as console:
+                    with open('console.py','r') as console:
                             lines = console.readlines()
                             cur_folder=os.getcwd()
                             lines[43] = f"self.FORK_MANAGER_folder_ini = '{cur_folder}'"
