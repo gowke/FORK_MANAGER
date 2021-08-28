@@ -153,7 +153,7 @@ class File_Manager(tk.Frame):
                             lines = console.readlines()
                             cur_folder=os.getcwd()
                             print(f'entered {cur_folder} and printed the lines?')
-                            lines[43] = f"        self.FORK_MANAGER_folder_ini = '{cur_folder}'\n"
+                            lines[41] = f"        self.FORK_MANAGER_folder_ini = '{cur_folder}'\n"
                             print('done editing console')
                             with open('console.py','w') as console_out:
                                 console_out.writelines(lines)
