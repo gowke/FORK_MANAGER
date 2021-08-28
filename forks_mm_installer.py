@@ -149,6 +149,10 @@ class File_Manager(tk.Frame):
                     output = repo.git.submodule('update', '--init')
                     subprocess.check_call(['sh','./make_devel.sh'])
                 elif filename=='agem':
+                    with open('console.py','a') as console:
+                            lines = colsile.readlines()
+                            cur_folder=os.getcwd()
+                            lines[43] = f"self.FORK_MANAGER_folder_ini = '{cur_folder}'"
                     venv_bin=os.path.join(folder,'venv/bin/launcher')
                     with open(venv_bin, 'w+') as launcher_file:
                         launcher_file.write('#!/bin/bash \n python3 {}/launcher.py'.format(install_folder))
