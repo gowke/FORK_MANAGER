@@ -1,4 +1,4 @@
 #!/bin/bash 
 cd ..
 . ./activate
-python -m pip install -r FORK_MANAGER/requirements.txt
+python3 -m pip install -r FORK_MANAGER/requirements.txt
