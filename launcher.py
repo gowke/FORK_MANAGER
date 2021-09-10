@@ -192,7 +192,14 @@ if __name__ =='__main__':
                      if arg =='-h':
                             print('use -i to install list of repos, -d to specify dir \nuse -listen to start remote listener')
                      if arg =='-i':
-                            install_non_gui(sys.argv)
+                            if len(sys.argv)>2:
+                                   install_non_gui(sys.argv)
+                            else:
+                                   for repo in folder_names.keys():
+                                          print(repo)
+                     if arg =='-l':
+                                   for repo in folder_names.keys():
+                                          print(repo)
                      if arg == 'listen':
                             launch_listener()
        else:
