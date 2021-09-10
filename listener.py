@@ -1,4 +1,4 @@
-
+#!/home/ya/goji-blockchain/venv/bin/python3 
 
 import socket, ssl, json
 import subprocess
@@ -10,11 +10,12 @@ import pickle,threading
 class Listener(object):
     def __init__(self,folder_names,ports_tf,**kwargs):
         
-
+        self.fm_folder = '/home/ya/goji-blockchain/FORK_MANAGER'
+        
+        self.host_folder=os.path.split(self.fm_folder)[0]
         self.folder_names=folder_names
         env_vars=self.get_env()
         self.host_folder=env_vars[0].strip().strip("'")
-        self.fm_folder=env_vars[1].strip().strip("'")
         cert_file=os.path.join(self.fm_folder,'agem_cert.pem')
         if os.path.isfile(cert_file):
             self.context = ssl.SSLContext(ssl.PROTOCOL_SSLv23)
@@ -23,13 +24,7 @@ class Listener(object):
             print('cannot find the pem keys')
         self.run()
 
-    def get_env(self):
-        with open('console.py','r') as console:
-            lines = console.readlines()
-            ini_loc_line=lines[41]
-            ini_loc_line=ini_loc_line.split('=')[1]
-            env_path=os.path.split(ini_loc_line)[0]
-            return env_path,ini_loc_line
+
 
     def detect_no_gui():
                 ports_true='FALSE'
