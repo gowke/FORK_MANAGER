@@ -1,4 +1,4 @@
-#!/home/ya/goji-blockchain/venv/bin/python3 
+
 
 import socket, ssl, json
 import subprocess
