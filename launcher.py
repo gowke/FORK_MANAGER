@@ -107,7 +107,7 @@ def console(event):
        Serve_console=Console(popup3)
 
 def launch_listener():
-       start_listener=Listener(cert='cert.pem',key='cert.pem', folder_names=folder_names,ports_tf='FALSE')
+       start_listener=Listener(folder_names=folder_names,ports_tf='FALSE')
 
 def install_non_gui(arg):
        homedir=os.path.split(os.path.split(arg[0])[0])[0]
