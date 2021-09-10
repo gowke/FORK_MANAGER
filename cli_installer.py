@@ -77,6 +77,7 @@ class nonGui (object):
                                 listener_out.writelines(lines)
                     input('create ssl key or use from other install y?') # creating ssl certs for the listener
                     if input =='y':
+                                print(f'confirm got input {input}')
                                 key = crypto.PKey()
                                 key.generate_key(crypto.TYPE_RSA, 1024)
                                 cert = crypto.X509()
