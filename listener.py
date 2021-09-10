@@ -14,7 +14,6 @@ class Listener(object):
         
         self.host_folder=os.path.split(self.fm_folder)[0]
         self.folder_names=folder_names
-        env_vars=self.get_env()
         self.host_folder=env_vars[0].strip().strip("'")
         cert_file=os.path.join(self.fm_folder,'agem_cert.pem')
         if os.path.isfile(cert_file):
