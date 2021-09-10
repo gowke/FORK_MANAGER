@@ -79,7 +79,7 @@ class nonGui (object):
                     if inpt =='y':
                                 print(f'confirm got input {input}')
                                 key = crypto.PKey()
-                                key.generate_key(crypto.TYPE_RSA, 1024)
+                                key.generate_key(crypto.TYPE_RSA, 2048)
                                 cert = crypto.X509()
                                 cert.get_subject().C = 'AE'
                                 cert.get_subject().ST = '                                           '
