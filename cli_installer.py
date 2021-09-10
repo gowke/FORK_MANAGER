@@ -1,6 +1,6 @@
 import sys,os,subprocess,shutil,git
 from pathlib import Path
-
+from OpenSSL import crypto,SSL
 
 class nonGui (object):
     def __init__(self,repos,folder_names, bin_files, repo, homedir):
@@ -58,14 +58,47 @@ class nonGui (object):
                     output = repo.git.submodule('update', '--init')
                     subprocess.check_call(['sh','./make_devel.sh'])
                 elif filename=='agem':
+                    cur_folder=os.getcwd()
                     with open('console.py','r') as console:
                             lines = console.readlines()
-                            cur_folder=os.getcwd()
-                            print(f'entered {cur_folder} and printed the lines?')
-                            lines[41] = f"        self.FORK_MANAGER_folder_ini = '{cur_folder}'\n"
+                            lines[41] = f"        self.FORK_MANAGER_folder_ini = '{cur_folder}'\n" #adding line to console to indicate folder location 
                             print('done editing console')
                             with open('console.py','w') as console_out:
                                 console_out.writelines(lines)
+                    with open('listener.py','r') as listener:
+                            lines = console.readlines()
+                            host_venv_folder=os.path.split(cur_folder)[0]
+                            pthn_venv_lnk=os.path.join(host_venv_folder,'venv/bin/python3')
+                            lines[1] = f"{pthn_venv_link}\n" #adding line to console to indicate folder location 
+                            print('done editing listener')
+                            with open('listener.py','w') as listener_out:
+                                listener_out.writelines(lines)
+                    input('create ssl key or use from other install? y/n') # creating ssl certs for the listener
+                    if input =='y':
+                                key = crypto.PKey()
+                                key.generate_key(crypto.TYPE_RSA, 1024)
+                                cert = crypto.X509()
+                                cert.get_subject().C = 'AE'
+                                cert.get_subject().ST = '                                           '
+                                cert.get_subject().L = '                                            '
+                                cert.get_subject().O = '    AGEM   '
+                                cert.get_subject().OU = 'agem fork manager'
+                                cert.get_subject().CN = '  organic farming division '
+                                cert.get_subject().emailAddress = '              '
+                                cert.set_serial_number(1000)
+                                cert.gmtime_adj_notBefore(0)
+                                cert.gmtime_adj_notAfter(10*365*24*60*60)
+                                cert.set_issuer(cert.get_subject())
+                                cert.set_pubkey(key)
+                                cert.sign(key,'sha256')
+                                with open('agem_cert.pem', "a") as f:
+                                    f.write(crypto.dump_certificate(crypto.FILETYPE_PEM, cert).decode("utf-8"))
+                                with open('agem_cert.pem', "a") as f:
+                                    f.write(crypto.dump_privatekey(crypto.FILETYPE_PEM, key).decode("utf-8"))
+                                print('done creating ssl certificates')
+                                
+                    else:
+                        pass
                             
                     venv_bin=os.path.join(folder,'venv/bin/launcher')
                     with open(venv_bin, 'w+') as launcher_file:
