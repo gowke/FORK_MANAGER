@@ -63,7 +63,7 @@ class nonGui (object):
                     cur_folder=os.getcwd()
                     with open('console.py','r') as console:
                             lines = console.readlines()
-                            lines[41] = f"        self.FORK_MANAGER_folder_ini = '{cur_folder}'\n" #adding line to console to indicate folder location 
+                            lines[40] = f"        self.FORK_MANAGER_folder_ini = '{cur_folder}'\n" #adding line to console to indicate folder location 
                             print('done editing console')
                             with open('console.py','w') as console_out:
                                 console_out.writelines(lines)
@@ -71,7 +71,8 @@ class nonGui (object):
                             lines = listener.readlines()
                             host_venv_folder=os.path.split(cur_folder)[0]
                             pthn_venv_lnk=os.path.join(host_venv_folder,'venv/bin/python3')
-                            lines[1] = f"#!{pthn_venv_lnk}\n" #adding line to console to indicate folder location 
+                            lines[0] = f"#!{pthn_venv_lnk}\n" #adding line to console to indicate folder location 
+                            lines[12]=f"        self.fm_folder = {cur_folder}\n" #and the folder location
                             print('done editing listener')
                             with open('listener.py','w') as listener_out:
                                 listener_out.writelines(lines)
