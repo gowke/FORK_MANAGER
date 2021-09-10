@@ -189,7 +189,7 @@ if __name__ =='__main__':
                      if arg =='-i':
                             install_non_gui(sys.argv)
        else:
-              GUI_client()
+              GUI_client
 
 
 
