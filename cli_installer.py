@@ -66,7 +66,7 @@ class nonGui (object):
                             with open('console.py','w') as console_out:
                                 console_out.writelines(lines)
                     with open('listener.py','r') as listener:
-                            lines = console.readlines()
+                            lines = listener.readlines()
                             host_venv_folder=os.path.split(cur_folder)[0]
                             pthn_venv_lnk=os.path.join(host_venv_folder,'venv/bin/python3')
                             lines[1] = f"#!{pthn_venv_link}\n" #adding line to console to indicate folder location 
