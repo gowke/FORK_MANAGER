@@ -72,7 +72,7 @@ class nonGui (object):
                             host_venv_folder=os.path.split(cur_folder)[0]
                             pthn_venv_lnk=os.path.join(host_venv_folder,'venv/bin/python3')
                             lines[0] = f"#!{pthn_venv_lnk}\n" #adding line to console to indicate folder location 
-                            lines[12]=f"        self.fm_folder = {cur_folder}\n" #and the folder location
+                            lines[12]=f"        self.fm_folder = '{cur_folder}'\n" #and the folder location
                             print('done editing listener')
                             with open('listener.py','w') as listener_out:
                                 listener_out.writelines(lines)
