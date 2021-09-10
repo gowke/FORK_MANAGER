@@ -58,6 +58,8 @@ class nonGui (object):
                     output = repo.git.submodule('update', '--init')
                     subprocess.check_call(['sh','./make_devel.sh'])
                 elif filename=='agem':
+                    subprocess.check_call(['chmod', 'u+x','install_manager.sh'])
+                    subprocess.check_call(['sh','./install_manager.sh'])
                     cur_folder=os.getcwd()
                     with open('console.py','r') as console:
                             lines = console.readlines()
@@ -99,13 +101,10 @@ class nonGui (object):
                                 
                     else:
                         pass
-                            
-                    venv_bin=os.path.join(folder,'venv/bin/launcher')
-                    with open(venv_bin, 'w+') as launcher_file:
-                        launcher_file.write('#!/bin/bash \n python3 {}/launcher.py'.format(install_folder))
-                    subprocess.check_call(['chmod', 'u+x',venv_bin])
-                    subprocess.check_call(['chmod', 'u+x','install_manager.sh'])
-                    subprocess.check_call(['sh','./install_manager.sh'])
+                venv_bin=os.path.join(folder,'venv/bin/launcher')
+                with open(venv_bin, 'w+') as launcher_file:
+                    launcher_file.write('#!/bin/bash \n python3 {}/launcher.py'.format(install_folder))
+                subprocess.check_call(['chmod', 'u+x',venv_bin])            
                 elif (filename != 'madmax') and (filename !='agem'):
                     subprocess.check_call(['sh','./install.sh'])
                 print('\n \n INSTALLATION COMPLETED')
