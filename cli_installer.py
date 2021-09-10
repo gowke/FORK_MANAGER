@@ -73,7 +73,7 @@ class nonGui (object):
                             print('done editing listener')
                             with open('listener.py','w') as listener_out:
                                 listener_out.writelines(lines)
-                    input('create ssl key or use from other install? y/n') # creating ssl certs for the listener
+                    input('create ssl key or use from other install y?') # creating ssl certs for the listener
                     if input =='y':
                                 key = crypto.PKey()
                                 key.generate_key(crypto.TYPE_RSA, 1024)
