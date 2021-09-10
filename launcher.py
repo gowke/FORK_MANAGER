@@ -8,6 +8,8 @@ from cli_installer import nonGui
 
 import sys,os
 
+from listener import Listener
+
 bin_files=['_farmer','_full_node','_full_node_simulator','_harvester','_introducer',
                         '_timelord','_timelord_launcher','_wallet']
 
@@ -104,6 +106,9 @@ def console(event):
        popup3.tk.call('wm', 'iconphoto',popup3._w, tk.PhotoImage(data=logo_file_image))
        Serve_console=Console(popup3)
 
+def launch_listener():
+       start_listener=Listener(cert='cert.pem',key='cert.pem', folder_names=folder_names,ports_tf='FALSE')
+
 def install_non_gui(arg):
        homedir=os.path.split(os.path.split(arg[0])[0])[0]
        homedir=os.path.join(homedir,'FORKS')
@@ -188,8 +193,12 @@ if __name__ =='__main__':
                             print('use -i to install list of repos, -d to specify dir \nuse -listen to start remote listener')
                      if arg =='-i':
                             install_non_gui(sys.argv)
+                     if arg == 'listen':
+                            launch_listener()
        else:
-              GUI_client
-
+              try:
+                     GUI_client()
+              except:
+                     pass
 
 
