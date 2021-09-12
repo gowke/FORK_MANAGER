@@ -160,7 +160,7 @@ class Listener(object):
                 return repos_to_send
 
     def on_new_client(self,client_sock,addr):
-            print(f"connection from {addr} has been established.")
+            #print(f"connection from {addr} has been established.")
             data=client_sock.recv(1024)
             if not data:
                 client_sock.close()
