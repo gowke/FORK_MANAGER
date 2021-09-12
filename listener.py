@@ -1,4 +1,4 @@
-
+#!/home/george/chaingreen-blockchain/venv/bin/python3
 
 import socket, ssl, json
 import subprocess
@@ -10,7 +10,7 @@ import pickle,threading
 class Listener(object):
     def __init__(self,folder_names,ports_tf,**kwargs):
         
-
+        self.fm_folder = '/home/george/chaingreen-blockchain/FORK_MANAGER'
         
         self.host_folder=os.path.split(self.fm_folder)[0]
         self.folder_names=folder_names
@@ -24,7 +24,7 @@ class Listener(object):
 
 
 
-    def detect_no_gui():
+    def detect_no_gui(self):
                 ports_true='FALSE'
                 host_venv=os.path.join(self.host_folder,'venv/bin')
                 forks_folder=os.path.join(self.host_folder,'FORKS')
@@ -102,7 +102,7 @@ class Listener(object):
                         if lbl in config_yamls.keys():
 
                             try:
-                                lbl_path=os.path.join(hots_venv,lbl) 
+                                lbl_path=os.path.join(host_venv,lbl) 
                                 status=subprocess.run([lbl_path,'farm','summary'],capture_output=True, shell=False)
                                 output =status.stdout.decode('utf-8')
                                 lst= output.split('\n')
@@ -161,11 +161,11 @@ class Listener(object):
 
     def on_new_client(self,client_sock,addr):
             print(f"connection from {addr} has been established.")
-            data=conn.recv(1024)
+            data=client_sock.recv(1024)
             if not data:
                 client_sock.close()
             elif data.decode('UTF-8') == 'detect' :
-                folder_to_delete=detect_no_gui()
+                folder_to_delete=self.detect_no_gui()
                 resp_enc=pickle.dumps(folder_to_delete,-1)
                 client_sock.send(resp_enc)
                 client_sock.close()
