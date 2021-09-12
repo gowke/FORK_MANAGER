@@ -1,4 +1,4 @@
-#!/home/george/chaingreen-blockchain/venv/bin/python3
+
 
 import socket, ssl, json
 import subprocess
@@ -10,7 +10,7 @@ import pickle,threading
 class Listener(object):
     def __init__(self,folder_names,ports_tf,**kwargs):
         
-        self.fm_folder = '/home/george/chaingreen-blockchain/FORK_MANAGER'
+
         
         self.host_folder=os.path.split(self.fm_folder)[0]
         self.folder_names=folder_names
