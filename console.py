@@ -41,7 +41,7 @@ class Console(tk.Frame):
 
         self.remote_true=StringVar()
 
-        self.FORK_MANAGER_folder_ini = '/home/ya/goji-blockchain/FORK_MANAGER'
+        
         self.homedir_list=os.path.split(self.FORK_MANAGER_folder_ini)
         self.homedir=self.homedir_list[0]
         self.cert_file=os.path.join(self.FORK_MANAGER_folder_ini,'agem_cert.pem')
