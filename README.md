@@ -1,7 +1,7 @@
 # FORK_MANAGER
 all forks in one (so far Linux) not tested on Unix  
 pulls and installs available forks into host blockchain environment  
-features a connection to a remote host to monitor farming on remote machine  
+features connection to a remote host to monitor farming on remote machine  
 --To Install--
 clone the git repo and cd into the FORK_MANAGER  
 python3 launcher.py to get started, if no tkinter do sudo apt-get install python3-tk, also requires gitPython repo. (pip3 install gitPython) or run pip3 install -r requirements.txt to install dependencies  
