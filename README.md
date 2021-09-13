@@ -7,7 +7,7 @@ features connection to a remote host to monitor remote farmer or harvester
   
 --To Install--  
   
-clone the git repo and cd into the FORK_MANAGER  
+clone this git repo and cd into the FORK_MANAGER  
   
 python3 launcher.py to get started, if no tkinter do sudo apt-get install python3-tk, also requires gitPython repo. (pip3 install gitPython) or run pip3 install -r requirements.txt to install dependencies  
   
