@@ -3,7 +3,7 @@ all forks in one (so far Linux) not tested on Unix
   
 pulls and installs available forks into host blockchain environment  
   
-features connection to a remote host to monitor farming on remote machine  
+features connection to a remote host to monitor remote farmer or harvester
   
 --To Install--  
   
