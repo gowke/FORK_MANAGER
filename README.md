@@ -27,10 +27,11 @@ MADMAX Gui is not dependent on the environment, but is assumed to have been inst
   
 Features fork console with info on running ports, farming status and plots, stop all /start all and deleting specific forks   
   
-Copy plot directory entry from chosen config.yaml into the rest of the forks
+Copy plot directory entry from chosen config.yaml into the rest of the forks  
+
+To run a remote connection, install the fork manager on your remote machine following above instructions, copy the randomly generated .pem file either from your main machine to your remote machine, or vice verse, only ensure the same file is being used on both machines, and do 'launcher listen' command on your remote machine to start listeneing on port 5999  
   
-  
-To run a remote connection, install the fork manager on remote machine following above instructions and do launcher listen command to start listeneing on port 5999  add the remote connection via manager's console on your main machine, select '+ remote' and it will query remote host for info on installed forks  
+add the remote connection via manager's console on your main machine, select '+ remote' and 'Detect' for it to query remote host along with your local pc for info on installed forks  
   
 if so inclined a donation is welcome:   
 cgn13lu3q74lsvc34cpwd56r35xj42cctvt60pqau675hut74h4nldcs53t8pp  
