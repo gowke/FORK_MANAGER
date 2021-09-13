@@ -15,7 +15,7 @@ to run cli installer without tkinter do python3 launcher.py -i agem,chia,goji -d
   
 if planning to run fork manager it is recommended to install it alongside your forks using the above instruction 
    
-cd into the blockchain environemnt  
+cd into the blockchain environment  
   
 run . ./activate  
   
