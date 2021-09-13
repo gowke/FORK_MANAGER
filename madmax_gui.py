@@ -17,7 +17,7 @@ class Madmaxx(tk.Frame):
         self.height = height
         self.master= master
 
-        self.FORK_MANAGER_folder_ini = '/home/ya/goji-blockchain/FORK_MANAGER'
+        
         
 
         self.ini_file=os.path.join(self.FORK_MANAGER_folder_ini,'settings.ini')
