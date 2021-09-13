@@ -1,7 +1,7 @@
 # FORK_MANAGER
-all forks in one (so far Linux)
-pulls and installs available forks into host blockchain environment
-run pip3 install -r requirements.txt (if tkinter is mising: sudo apt-get install python3-tk) and then python3 launch.py to get started and install the agem manager from repo into the blockchain fork of your choice
+all forks in one (so far Linux)\n
+pulls and installs available forks into host blockchain environment\n
+run pip3 install -r requirements.txt (if tkinter is mising: sudo apt-get install python3-tk) and then python3 launch.py to get started and install the agem manager from repo into the blockchain fork of your choice\n
 cd into the blockchain environemnt
 run . ./activate
 and run 'launcher' to run the manager from within the environment
