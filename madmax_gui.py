@@ -17,8 +17,10 @@ class Madmaxx(tk.Frame):
         self.height = height
         self.master= master
 
-        self.homedir=os.getcwd()
+        self.FORK_MANAGER_folder_ini = '/home/ya/goji-blockchain/FORK_MANAGER'
+        
 
+        self.ini_file=os.path.join(self.FORK_MANAGER_folder_ini,'settings.ini')
         self.install=StringVar()
         self.count=StringVar()
         self.threads=StringVar()
@@ -31,9 +33,10 @@ class Madmaxx(tk.Frame):
         self.public_pool=StringVar()
 
         self.wait_true=StringVar()
-
-        self.install.set(self.homedir)
-
+        
+        self.chia_plotter_path=os.path.join(os.path.join(os.path.split(self.FORK_MANAGER_folder_ini)[0],'FORKS'),'chia-plotter')
+        if os.path.isdir(self.chia_plotter):
+            self.install.set(os.path.join(os.path.join(os.path.split(self.FORK_MANAGER_folder_ini)[0],'FORKS'),'chia-plotter'))
        
         self.install_lbl=Label(self.master,text='Madmax Install')
         self.count_lbl=Label(self.master,text='plots -n')
@@ -103,26 +106,26 @@ class Madmaxx(tk.Frame):
         self.copy.bind('<Button-1>',self.copy_cmd)
 
     def save_settings(self):
-        data={}
-        data['madmax_setup']=[]
-        data['madmax_setup'].append({'install':self.install.get(),
-                                     'count':self.count.get(),
-                                     'threads':self.threads.get(),
-                                     'buckets':self.buckets.get(),
-                                     'farmer_key':self.farmer_key.get(),
-                                     'contract':self.pool_contract.get(),
-                                     'temp_dir':self.temp_dir.get(),
-                                     'temp_dir2':self.temp_dir2.get(),
-                                     'dest':self.dest_dir.get(),
-                                     'pool key':self.public_pool.get()
-                                     })
-        os.chdir(self.homedir)
-        with open('settings.ini', 'w') as settings:
+        with open(self.ini_file) as settings:
+                data=json.load(settings)
+                data['madmax_setup'][0]['install']=self.install.get()
+                data['madmax_setup'][0]['count']=self.count.get()
+                data['madmax_setup'][0]['threads']=self.threads.get()
+                data['madmax_setup'][0]['buckets']=self.buckets.get()
+                data['madmax_setup'][0]['farmer_key']=self.farmer_key.get()
+                data['madmax_setup'][0]['contract']=self.pool_contract.get()
+                data['madmax_setup'][0]['temp_dir']=self.temp_dir.get()
+                data['madmax_setup'][0]['temp_dir2']=self.temp_dir2.get()
+                data['madmax_setup'][0]['dest']=self.dest_dir.get()
+                data['madmax_setup'][0]['pool key']=self.public_pool.get()
+                with open('settings.ini','w') as s_out:
+                    json.dump(data,s_out)
+
+        with open(self.ini_file, 'w') as settings:
                 json.dump(data, settings)
 
     def load_settings(self):
-        os.chdir(self.homedir)
-        with open('settings.ini') as settings:
+        with open(self.ini_file) as settings:
             data = json.load(settings)
         settings= data['madmax_setup'][0]
         self.install.set(settings['install'])
@@ -164,8 +167,7 @@ class Madmaxx(tk.Frame):
             else:
                 commands.append(key)
                 commands.append(self.command_handle_dict[key])
-        print('before return',commands)
-
+                
         return commands
         
 
