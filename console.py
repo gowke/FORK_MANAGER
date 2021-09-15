@@ -38,7 +38,7 @@ class Console(tk.Frame):
         self.home=expanduser("~")
 
         self.ports_true=StringVar()
-        self.FORK_MANAGER_folder_ini = '/home/ya/goji-blockchain/FORK_MANAGER'
+
         self.remote_true=StringVar()
 
         
