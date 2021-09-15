@@ -1,4 +1,7 @@
-import sys,os,subprocess,shutil,git
+import sys,os,subprocess,shutil
+
+import git
+
 from pathlib import Path
 from OpenSSL import crypto,SSL
 
@@ -51,6 +54,7 @@ class nonGui (object):
                         self.get_dir(folder,install_folder,filename)
 
     def get_dir(self,folder,install_folder,filename):
+                #Repo.clone_from(self.repos[filename],folder)
                 git.Git(folder).clone(self.repos[filename])
                 os.chdir(install_folder)
                 if filename == 'madmax':
@@ -119,6 +123,8 @@ class nonGui (object):
         for file in self.bin_files:
             if filename=='chiarose':
                 temp_bin_file=os.path.join(temp_bin,('chia'+file))
+            elif filename=='n-chain':
+                 temp_bin_file=os.path.join(temp_bin,('chia'+file)) 
             else:
                 temp_bin_file=os.path.join(temp_bin,(filename+file))
             main_bin_file=os.path.join(main_bin,(filename+file))
@@ -136,6 +142,8 @@ class nonGui (object):
             print('copying to {} completed'.format(bin_dict[file]))
             
         if filename=='chiarose':
+            launch_file_temp=os.path.join(temp_bin,'chia')
+        elif filename=='n-chain':
             launch_file_temp=os.path.join(temp_bin,'chia')
         else:
             launch_file_temp=os.path.join(temp_bin,filename)
