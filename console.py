@@ -419,7 +419,7 @@ class Console(tk.Frame):
 
              for remote_lbl in response:
                 remote_lbl_name=f"{remote_lbl}_remote" #Logo
-                self.label[remote_lbl_name]=Label(self.inner_frame,text=lbl.name, fg='white',bg='turquoise',font='Arial 16',compound=LEFT,image=self.image_vars[remote_lbl])
+                self.label[remote_lbl_name]=Label(self.inner_frame,text=remote_lbl, fg='white',bg='turquoise',font='Arial 16',compound=LEFT,image=self.image_vars[remote_lbl])
                 self.label[remote_lbl_name].grid(row=x,column=y,sticky= NW)
                 self.label_id_text[id(self.label[remote_lbl_name])]=remote_lbl_name
                 x+=1
