@@ -131,7 +131,7 @@ folder_names={ 'chia':'chia-blockchain',
                             'n-chain':'ext9-blockchain',
                             'cryptodoge':'cryptodoge',
                             'pipscoin':'pipscoin-blockchain',
-                            'olive':'olive-blockchain'
+                            'olive':'Olive-blockchain'
                             }
 
 def install(event):
