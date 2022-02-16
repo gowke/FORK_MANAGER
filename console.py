@@ -431,7 +431,7 @@ class Console(tk.Frame):
 
 
                 status_lbl_remote=f"{remote_lbl}_remote_status"
-                farm_status=response[remote_lbl]['farm_status']    # Farming status    
+                farm_status=response[remote_lbl]['farm_status']['Farming status']    # Farming status    
                 if farm_status=='Farming status: Farming':
                        self.label[status_lbl_remote]=Label(self.inner_frame,text=farm_status, fg='green',bg='turquoise',font='Arial 16')
                 elif farm_status=='Farming status: Syncing':
@@ -445,7 +445,7 @@ class Console(tk.Frame):
                 x+=1
 
                 plots_lbl=f"{remote_lbl}_remote_plots" # Plot count
-                self.label[plots_lbl]=Label(self.inner_frame,text=response[remote_lbl]['plot_count'],fg='white',bg='turquoise',font='Arial 16')
+                self.label[plots_lbl]=Label(self.inner_frame,text=response[remote_lbl]['farm_status']['plt_cnt'],fg='white',bg='turquoise',font='Arial 16')
                 self.label[plots_lbl].grid(row=x,column=y,sticky= NW)
                 x+=1
 
