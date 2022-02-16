@@ -431,7 +431,7 @@ class Console(tk.Frame):
 
 
                 status_lbl_remote=f"{remote_lbl}_remote_status"
-                farm_status=response[remote_lbl]['Farming status']    # Farming status    
+                farm_status=response[remote_lbl]['Farm_status']    # Farming status    
                 if farm_status=='Farming status: Farming':
                        self.label[status_lbl_remote]=Label(self.inner_frame,text=farm_status, fg='green',bg='turquoise',font='Arial 16')
                 elif farm_status=='Farming status: Syncing':
