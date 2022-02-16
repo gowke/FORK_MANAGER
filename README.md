@@ -29,7 +29,7 @@ Features fork console with info on running ports, farming status and plots, stop
   
 Copy plot directory entry from chosen config.yaml into the rest of the forks  
 
-To run a remote connection, install the fork manager on your remote machine following above instructions, copy the randomly generated .pem file either from your main machine to your remote machine, or vice verse, only ensure the same file is being used on both machines, and do 'launcher listen' command on your remote machine to start listeneing on port 5999  
+To run a remote connection, install the fork manager on your remote machine following above instructions, copy the randomly generated .pem file either from your main machine to your remote machine, or vice verse, only ensure the same file is being used on both machines, and do 'launcher listen' command on your remote machine to start listening on port 5999  
   
 add the remote connection via manager's console on your main machine, select '+ remote' and 'Detect' for it to query remote host along with your local pc for info on installed forks  
   
