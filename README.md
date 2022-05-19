@@ -1,7 +1,9 @@
 # FORK_MANAGER
 all forks in one (so far Linux) not tested on Unix  
+
+lightweight manager written in Python
   
-pulls and installs available forks into host blockchain environment  
+pulls source codes and installs available forks into host blockchain environment  
   
 features connection to a remote host to monitor remote farmer or harvester
   
@@ -13,7 +15,7 @@ python3 launcher.py to get started, if no tkinter do sudo apt-get install python
   
 to run cli installer without tkinter do python3 launcher.py -i agem,chia,goji -d /home/{someuser}/{host fork}-blockchain  
   
-if planning to run fork manager it is recommended to install it alongside your forks using the above instruction 
+if planning to run fork manager it is recommended to install it alongside your forks using the above instruction (agem)
    
 cd into the blockchain environment  
   
