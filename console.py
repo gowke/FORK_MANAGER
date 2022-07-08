@@ -484,7 +484,7 @@ class Console(tk.Frame):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
             with context.wrap_socket(sock) as s:
                 s.connect((host_ip[2][0], 5999))
-                command='detect'.encode('UTF-8')
+                command=pickle.dumps('detect')
                 s.send(command)
                 data=b''
                 while True:
