@@ -164,11 +164,16 @@ class Listener(object):
             data=client_sock.recv(1024)
             if not data:
                 client_sock.close()
-            elif data.decode('UTF-8') == 'detect' :
-                folder_to_delete=self.detect_no_gui()
-                resp_enc=pickle.dumps(folder_to_delete,-1)
-                client_sock.send(resp_enc)
-                client_sock.close()
+            elif pickle.loads(data) == 'detect' :
+                 folder_to_delete=self.detect_no_gui()
+                 resp_enc=pickle.dumps(folder_to_delete,-1)
+                 client_sock.send(resp_enc)
+                 client_sock.close()
+            elif pickle.loads(data)['command'] == 'balance': # for modified listener
+                 mnem=pickle.loads(data)['mnemonic']
+                 resp_enc=pickle.dumps(self.return_balance(mnem))
+                 client_sock.send(resp_enc)
+                 client_sock.close()
                 
     def run(self):
 
