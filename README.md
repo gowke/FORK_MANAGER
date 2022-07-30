@@ -21,7 +21,7 @@ cd into the blockchain environment
   
 run . ./activate  
   
-and run 'launcher' to run the manager from within the environment, as you would do 'chia' or any other fork  
+and run 'launcher' to run the manager from within the environment, as you would do 'chia' or any other fork once it has been poured into that environment
   
 add forks direct from respective repos to your environemnt and run as usual chia, chaingreen, flax, goji, cannabis from the same environment
   
