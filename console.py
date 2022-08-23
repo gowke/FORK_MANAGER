@@ -225,13 +225,15 @@ class Console(tk.Frame):
         
 
         for key in self.logos.keys():
-            self.folder_to_delete[key]={'home_folder':'', 'bin_files':'', 'FORKS_folder':'','fingerprint':'','host_venv':''}
+            self.folder_to_delete[key]={'home_folder':'', 'bin_files':'', 'FORKS_folder':'','fingerprint':'','host_venv':'', 'keys_folder':''}
             if key in files_in_bin:
                 for folder in os.listdir(self.home):
                     if '.{}'.format(key) in folder:
                             self.db_files[key]=os.path.join(self.home,f'.{key}','mainnet','db','blockchain_v1_mainnet.sqlite')              
                             self.config_yamls[key]=os.path.join(self.home,f'.{key}','mainnet','config','config.yaml')
                             self.folder_to_delete[key]['home_folder']=os.path.join(self.home,f'.{key}')
+                            self.folder_to_delete[key]['keys_folder']=os.path.join(self.home,f'.{key}_keys')
+                            
 
 
 
@@ -530,6 +532,7 @@ class Console(tk.Frame):
         try:
             if self.delete_keys_str.get()=='TRUE':
                 subprocess.check_call(['{}'.format(self.repo_to_delete),'keys', 'delete_all'],shell=False)
+                subprocess.check_call(['sudo','rm','-r','{}'.format(self.folder_to_delete[self.repo_to_delete]['keys_folder'])],shell=False)
         except:
             pass
 
