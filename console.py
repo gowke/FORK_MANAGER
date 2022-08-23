@@ -229,9 +229,10 @@ class Console(tk.Frame):
             if key in files_in_bin:
                 for folder in os.listdir(self.home):
                     if '.{}'.format(key) in folder:
-                        self.db_files[key]=os.path.join(self.home,folder,'mainnet','db','blockchain_v1_mainnet.sqlite')              
-                        self.config_yamls[key]=os.path.join(self.home,folder,'mainnet','config','config.yaml')
-                        self.folder_to_delete[key]['home_folder']=os.path.join(self.home,folder)
+                            self.db_files[key]=os.path.join(self.home,f'.{key}','mainnet','db','blockchain_v1_mainnet.sqlite')              
+                            self.config_yamls[key]=os.path.join(self.home,f'.{key}','mainnet','config','config.yaml')
+                            self.folder_to_delete[key]['home_folder']=os.path.join(self.home,f'.{key}')
+
 
 
         self.bin_files=['_farmer','_full_node','_full_node_simulator','_harvester','_introducer',
