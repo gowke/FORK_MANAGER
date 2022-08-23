@@ -15,9 +15,9 @@ python3 launcher.py to get started, if no tkinter do 'sudo apt-get install pytho
   
 to run cli installer without tkinter do python3 launcher.py -i agem,flax,goji -d /home/{someuser}/{chia}-blockchain  
 
-recommend pouring agem (the fork manager) into the host (chia) blockchain and then pour all successive forks into the host chain using that manager from within the host environment as follows.
+recommend pouring agem (the fork manager) into the host (chia) blockchain as in the example above.
    
-cd into the blockchain environment  
+you can then cd into the blockchain environment  
   
 run . ./activate  
   
