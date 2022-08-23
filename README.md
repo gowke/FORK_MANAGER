@@ -1,7 +1,7 @@
 # FORK_MANAGER
 pour all forks into one venv (so far for Linux only, not tested on Mac)  
 
-lightweight manager written in Python
+basic lightweight manager written in Python
   
 pull source codes from github and install available forks into host blockchain environment  
   
