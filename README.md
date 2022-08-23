@@ -24,9 +24,7 @@ run . ./activate
 and run 'launcher' to run the manager from within the environment, as you would do 'chia' or any other fork once it has been poured into that environment
   
 add forks direct from respective repos to your environemnt and run as usual chia, chaingreen, flax, goji, cannabis from the same environment
-  
-MADMAX Gui is not dependent on the environment, but is assumed to have been installed into FORKS folder by default   
-  
+   
 Features fork console with info on running ports, farming status and plots, stop all /start all and deleting specific forks   
   
 Copy plot directory entry from chosen config.yaml into the rest of the forks  
